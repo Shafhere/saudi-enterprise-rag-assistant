@@ -35,3 +35,8 @@ docker compose up --build
 
 Demo
 
+
+
+License
+MIT
+
