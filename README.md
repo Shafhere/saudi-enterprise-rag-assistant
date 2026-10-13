@@ -2,7 +2,7 @@
 
 Bilingual (Arabic/English) document Q&A with automatic PII masking, built for Saudi enterprise compliance (PDPL).
 
-https://youtu.be/JFcqKAzxwDg
+click here to watch demo:  https://youtu.be/JFcqKAzxwDg
 
 ## What it does
 - Upload PDFs in Arabic or English
