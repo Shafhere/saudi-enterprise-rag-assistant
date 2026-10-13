@@ -1,18 +1,37 @@
-# Saudi Enterprise RAG Assistance
+# Wathiqa — Saudi Document Intelligence Platform
 
-Bilingual (Arabic/English) document Q&A platform with automatic PII masking. Upload PDFs, ask questions, get source-grounded answers.
+Bilingual (Arabic/English) document Q&A with automatic PII masking, built for Saudi enterprise compliance (PDPL).
 
-## Why this exists
-Saudi enterprises handle thousands of Arabic/English documents daily. They can't search them, and PII exposure violates PDPL. This platform:
-- Extracts text from PDFs
-- Detects language (Arabic/English)
-- Masks PII (Saudi ID, IBAN, phone, email) before indexing
-- Classifies document type (invoice, contract, ID, policy)
-- Answers questions using Hybrid RAG with citations
+![Wathiqa Demo]()
 
-## Stack
-FastAPI · Streamlit · ChromaDB · BM25 · RRF · Cross-Encoder · SQLAlchemy (SQLite) · Docker
+## What it does
+- Upload PDFs in Arabic or English
+- Auto-detects language and document type (invoice, contract, identity, policy)
+- Masks Saudi National IDs, IBANs, phone numbers, and emails before indexing
+- Answers questions using Hybrid RAG with source-grounded responses
 
-## Run
+## Architecture
+
+PDF → Extract text → Detect language → Mask PII → Chunk → Embed (ChromaDB)
+↓
+BM25 + Vector + RRF
+↓
+Cross-Encoder Rerank
+↓
+Groq Llama → Answer
+
+
+## Tech Stack
+Python · FastAPI · Streamlit · LangChain · ChromaDB · BM25 · RRF · Cross-Encoder · Groq · SQLAlchemy · Docker
+
+## Quick Start
 ```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+streamlit run dashboard/app.py
+
+Docker
 docker compose up --build
+
+Demo
+
